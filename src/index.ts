@@ -18,12 +18,20 @@ interface GithubRepoResponse{
     fork: boolean
 }
 
+function clearContainer(){
+    container.innerHTML = ""
+}
+
 async function fetchUser(name: HTMLInputElement){
     const response = await fetch(`https://api.github.com/users/${name.value}`)
     const user: GithubResponse = await response.json()
 
     if(user.message){
-        console.log("Usuário não encontrado!")
+        container.innerHTML += `
+                <div class="not-found">
+                    <p>Usuário não encontrado!</p>
+                </div>
+            `
     } else {
         const userRepos = await fetch(user.repos_url)
         const repos: GithubRepoResponse[] = await userRepos.json()
@@ -59,8 +67,8 @@ async function fetchUser(name: HTMLInputElement){
                     <li>
                         <span>O repositório é um fork?</span> ${repo.fork ? 'Sim' : 'Não'}
                     </li>
-                    <li>
-                        <span></span><a href="${repo.html_url}">Link</a>
+                    <li class="link-li">
+                        <span>Acessar repositório: </span><a href="${repo.html_url}" target="_blank"><img src="assets/arrow-up-right.svg" class="link-icon"></a>
                     </li>
                 </ul>
             `
@@ -69,5 +77,13 @@ async function fetchUser(name: HTMLInputElement){
 }
 
 document.getElementById("btn").addEventListener('click', () => {
+    clearContainer()
     fetchUser(username)
+})
+
+username.addEventListener('keypress', (ev) => {
+    if(ev.key === "Enter"){
+        clearContainer()
+        fetchUser(username)
+    }
 })

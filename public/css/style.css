@@ -8,8 +8,12 @@
 }
 
 body{
-    background-color: #171515;
-    color: #f3f3f3;
+    --black-color: #171515;
+    --gray-color: #808080d5;
+    --white-color: #f3f3f3;
+
+    background-color: var(--black-color);
+    color: var(--white-color);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -22,15 +26,15 @@ body{
     margin-top: 1rem;
 }
 
-.container > img{
+.logo{
     width: 120px;
 }
 
 .input-entry{
     border-radius: 1rem;
-    background-color: #f3f3f3;
+    background-color: var(--white-color);
     padding: .25rem;
-    width: 300px;
+    width: 280px;
     height: 32px;
     display: flex;
     flex-direction: row;
@@ -41,13 +45,13 @@ input[type=text]{
     outline: none;
     padding: .25rem;
     border: none;
-    background-color: #f3f3f3;
-    width: 240px;
+    background-color: var(--white-color);
+    width: 230px;
     border-radius: 1rem;
 }
 
 input[type=text]::placeholder{
-    color: #171515;
+    color: var(--black-color);
 }
 
 button{
@@ -59,7 +63,7 @@ button{
     border: none;
     height: 32px;
     background-color: transparent;
-    width: 60px;
+    width: 50px;
     border-radius: 1rem;
 }
 
@@ -67,10 +71,15 @@ button > img{
     height: 22px;
 }
 
+#card-container{
+    width: 90%;
+    margin: 3.5rem auto;
+}
+
 .info-container{
     margin: 2rem 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     gap: 1rem;
 }
@@ -80,16 +89,11 @@ button > img{
     border-radius: 50%
 }
 
-#card-container{
-    width: 80%;
-    margin: 1.5rem auto;
-}
-
 .repos-info{
     margin: 1rem;
-    padding: 1rem 0;
-    font-weight: 300;
-    border-bottom: 1px solid #808080d5;
+    padding-bottom: 1rem;
+    font-weight: 400;
+    border-bottom: 1px solid var(--gray-color);
 }
 
 .repos-info > li, .user-info > li{
@@ -97,5 +101,42 @@ button > img{
 }
 
 .repos-info > li > span, .user-info > li > span{
+    margin-right: 3px;
+    font-size: 1.1rem;
     font-weight: 700;
+}
+
+.link-li{
+    display: flex;
+    align-items: center;
+}
+
+.link-icon{
+    width: 13px;
+    margin-left: 3px;
+}
+
+.not-found{
+    text-align: center;
+}
+
+/* Responsividade */
+
+@media(min-width: 490px){
+    .input-entry{
+        width: 300px;
+    }
+
+    input[type=text]{
+        width: 260px;
+    }
+
+    button{
+        width: 40px;
+    }
+
+    .info-container{
+        flex-direction: row;
+    }
+
 }

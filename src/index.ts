@@ -47,7 +47,7 @@ async function fetchUser(name: HTMLInputElement){
                     <span>Login: </span>${user.login}
                 </li>
                 <li>
-                    <span>Bio: </span>${user.bio ?? ""}
+                    <span>Bio: </span>${user.bio ?? "-"}
                 </li>
                 <li>
                     <span>Repositórios Públicos: </span>${user.public_repos}
@@ -62,7 +62,7 @@ async function fetchUser(name: HTMLInputElement){
                         <span>Nome do repositório: </span>${repo.name}
                     </li>
                     <li>
-                        <span>Descrição: </span>${repo.description ?? "O repositório não possui descrição."}
+                        <span>Descrição: </span>${repo.description ?? "-"}
                     </li>
                     <li>
                         <span>O repositório é um fork?</span> ${repo.fork ? 'Sim' : 'Não'}

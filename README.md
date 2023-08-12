@@ -10,6 +10,6 @@ Página responsiva que consome dados da API do GitHub e retorna usuários do mes
 👉[ACESSAR](https://buscador-usuario-github-camilafbc.vercel.app/)
 
 ### Principais conceitos trabalhados:
-* Tipagem com TypeScript
+* Tipagem com TypeScript e uso de interface
 * Consumo de API REST
 

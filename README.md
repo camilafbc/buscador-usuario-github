@@ -12,4 +12,3 @@ O projeto pode ser acessado aqui 👉 https://buscador-usuario-github-camilafbc.
 ### Principais conceitos trabalhados:
 * Tipagem com TypeScript e uso de interface
 * Consumo de API REST
-
